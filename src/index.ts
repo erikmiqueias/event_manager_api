@@ -12,10 +12,10 @@ import { mobileRouter } from "./routes/mobile-routes";
 
 config();
 const app = express();
-const PORT = 3333;
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
 const corsOptions: cors.CorsOptions = {
-  origin: true, // permite qualquer origem
+  origin: true,
   credentials: true,
 };
 
@@ -29,15 +29,15 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true, // configura para usar https
-      httpOnly: false, // evita que o cookie seja acessado pelo javascript
-      sameSite: "none",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: false,
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 1000 * 60 * 60,
     },
     store: new sessionStore({
-      checkPeriod: 86400, // 1 dia
+      checkPeriod: 86400,
     }),
-    proxy: true, // Para cloudflare
+    proxy: true,
     name: "session",
   })
 );

@@ -17,7 +17,7 @@ COPY . .
 RUN pnpm run build
 
 # Expõe a porta (ajuste se for diferente)
-EXPOSE 3000
+EXPOSE 8080
 
 # Comando para rodar a aplicação já compilada
 CMD ["node", "dist/index.js"]

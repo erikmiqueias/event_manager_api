@@ -26,8 +26,6 @@ import { PostgresJoinEventRepository } from "../repositories/event/join-event";
 import { PostgresCreateUserRepository } from "../repositories/user/create-user";
 import { PostgresGetUserRepository } from "../repositories/user/get-user";
 import upload from "../middlewares/multer";
-import cloudinary from "../config/cloudinary";
-import { unlinkSync } from "fs";
 import express from "express";
 import { PostgresEditUserByIdRepository } from "../repositories/user/edit-user";
 import { EditUserByIdController } from "../controllers/user/edit-user-by-id-controller";

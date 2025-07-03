@@ -15,7 +15,7 @@ export class GetUserByEmailController implements IGetUserByEmailController {
     try {
       const { body } = httpRequest;
 
-      if (!body || !body.email || !body.password) {
+      if (!body.email || !body.password) {
         return {
           statusCode: 400,
           body: "Missing email or password",

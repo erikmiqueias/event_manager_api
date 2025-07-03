@@ -1,3 +1,11 @@
 services:
   - type: web
     name: events-manager-backend
+    env: 
+      - name: POSTGRES_USER
+        value: postgres
+      - name: POSTGRES_PASSWORD
+        value: postgres
+      - name: POSTGRES_DB
+        value: events_manager_db
+        

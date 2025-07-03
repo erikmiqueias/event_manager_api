@@ -37,6 +37,7 @@ mobileRouter.get("/status", authWithJwtMobile, (req, res) => {
 });
 
 mobileRouter.post("/login", async (req, res) => {
+  console.log(req.body);
   const getGetUserByEmailRepository = new PostgresGetUserByEmailRepository();
   const getUserByEmailController = new GetUserByEmailController(
     getGetUserByEmailRepository

@@ -8,7 +8,7 @@ export class PostgresEditUserByIdRepository
 {
   async editUserById(userId: string, fields: Partial<User>): Promise<User> {
     const fieldToColumn = {
-      userName: "username",
+      userName: "user_name",
       email: "email",
       password: "password",
       address: "address",

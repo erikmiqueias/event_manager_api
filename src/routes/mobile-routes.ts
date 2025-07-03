@@ -26,8 +26,11 @@ import { PostgresGetUserRepository } from "../repositories/user/get-user";
 import { PostgresGetUserByEmailRepository } from "../repositories/user/get-user-by-email";
 import { authWithJwtMobile } from "../middlewares/auth-mobile";
 import jwt from "jsonwebtoken";
+import express from "express";
 
 export const mobileRouter = Router();
+
+mobileRouter.use(express.json());
 
 mobileRouter.get("/status", authWithJwtMobile, (req, res) => {
   res.status(200).json({

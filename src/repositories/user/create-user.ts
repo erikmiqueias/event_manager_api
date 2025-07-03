@@ -8,7 +8,7 @@ export class PostgresCreateUserRepository
 {
   async create(createUserParams: Omit<User, "id">): Promise<User> {
     const user: QueryResult = await pool.query(
-      "INSERT INTO users (username, email, password, address, bio, company, image_url, job_title, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;",
+      "INSERT INTO users (user_name, email, password, address, bio, company, image_url, job_title, phone_number) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;",
       [
         createUserParams.userName,
         createUserParams.email,

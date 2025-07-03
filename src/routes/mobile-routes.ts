@@ -27,6 +27,7 @@ import { PostgresGetUserByEmailRepository } from "../repositories/user/get-user-
 import { authWithJwtMobile } from "../middlewares/auth-mobile";
 import jwt from "jsonwebtoken";
 import express from "express";
+import upload from "../middlewares/multer";
 
 export const mobileRouter = Router();
 
@@ -277,6 +278,7 @@ mobileRouter.delete(
 
 mobileRouter.patch(
   "/user/event/:eventId",
+  upload.single("image"),
   authWithJwtMobile,
   async (req, res) => {
     const userIdFromParams = req.params.id;
